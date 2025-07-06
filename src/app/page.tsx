@@ -3,9 +3,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
-// TODO: Replace with your actual n8n webhook URL
-const N8N_API_URL = "http://localhost:5678/webhook/search-products";
-
 export default function Home() {
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");

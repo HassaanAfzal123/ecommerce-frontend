@@ -17,6 +17,12 @@ export default function AboutPage() {
         </p>
       </section>
       <section style={{ marginBottom: 32 }}>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#222", marginBottom: 12 }}>Our Values</h2>
+        <p style={{ fontSize: "1.1rem", color: "#444" }}>
+          We are committed to customer satisfaction, product quality, and transparent pricing. Our platform is designed to make shopping accessible, secure, and enjoyable for everyone. We&apos;re constantly innovating to provide the best possible shopping experience.
+        </p>
+      </section>
+      <section style={{ marginBottom: 32 }}>
         <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#222", marginBottom: 12 }}>Why Shop With Us?</h2>
         <ul style={{ fontSize: "1.1rem", color: "#444", paddingLeft: 24, marginBottom: 0 }}>
           <li>Vast selection of products across categories</li>
@@ -30,7 +36,7 @@ export default function AboutPage() {
       <section>
         <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#222", marginBottom: 12 }}>Contact Us</h2>
         <p style={{ fontSize: "1.1rem", color: "#444" }}>
-          Have questions, feedback, or need help? Reach out to our support team at <a href="mailto:support@e-com.com" style={{ color: "#2563eb", textDecoration: "underline" }}>support@e-com.com</a> and we'll be happy to assist you.
+          Have questions or feedback? We&apos;d love to hear from you. Our customer support team is here to help with any inquiries about our products, services, or platform.
         </p>
       </section>
     </main>

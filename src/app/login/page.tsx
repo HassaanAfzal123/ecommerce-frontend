@@ -29,7 +29,7 @@ export default function LoginPage() {
       } else {
         setError("Login failed. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setError("An error occurred. Please try again.");
     } finally {
       setLoading(false);
@@ -47,7 +47,7 @@ export default function LoginPage() {
       } else {
         setError("Google login failed. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setError("An error occurred. Please try again.");
     } finally {
       setLoading(false);

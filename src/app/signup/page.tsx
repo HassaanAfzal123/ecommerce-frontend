@@ -36,7 +36,7 @@ export default function SignupPage() {
       } else {
         setError("Signup failed. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setError("An error occurred. Please try again.");
     } finally {
       setLoading(false);
@@ -54,7 +54,7 @@ export default function SignupPage() {
       } else {
         setError("Google signup failed. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setError("An error occurred. Please try again.");
     } finally {
       setLoading(false);

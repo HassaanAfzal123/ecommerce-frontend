@@ -15,13 +15,23 @@ interface CartItem {
   thumbnail?: string;
 }
 
+interface Product {
+  id: string;
+  title: string;
+  price: number;
+  description?: string;
+  rating?: number;
+  availabilityStatus?: string;
+  thumbnail?: string;
+}
+
 export default function SearchPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { user } = useAuth();
   const query = searchParams.get("q") || "";
   const page = parseInt(searchParams.get("page") || "1", 10);
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [total, setTotal] = useState(0);
@@ -125,7 +135,7 @@ export default function SearchPage() {
       })
       .then(({ ok, data }) => {
         // Support both: array of products, or array with a single object with 'products' property
-        let productsArr: any[] = [];
+        let productsArr: Product[] = [];
         let warningsArr: string[] = [];
         
         if (Array.isArray(data)) {
@@ -220,7 +230,7 @@ export default function SearchPage() {
         <div className={styles.emptyState}>No products found for your search.</div>
       )}
       <section className={styles.productGrid} style={{ marginTop: 24 }}>
-        {paginatedProducts.map(product => {
+        {paginatedProducts.map((product: Product) => {
           console.log('Product card:', product); // Debug: log each product
           return (
             <div key={product.id} className={styles.productCard}>

@@ -20,7 +20,7 @@ export default function ProductInfoPage() {
     
     // Send the webhook request but don't wait for response
     fetch(`${N8N_PRODUCT_INFO_URL}?title=${encodeURIComponent(title)}`)
-      .catch(err => {
+      .catch(() => {
         // Silently ignore any errors - we don't care about the response
         console.log('Webhook called (response ignored)');
       });
@@ -33,7 +33,7 @@ export default function ProductInfoPage() {
   }, [title]);
 
   // Render logic for info
-  function renderInfo(info: any) {
+  function renderInfo(info: string | object) {
     if (typeof info === 'string') {
       return <div style={{ fontSize: '1.2rem', color: '#16a34a', fontWeight: 600, textAlign: 'center', padding: '20px' }}>{info}</div>;
     }

@@ -2,9 +2,14 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../../contexts/AuthContext";
-import styles from "../page.module.css";
 
 interface OrderItem {
+  title: string;
+  quantity: number;
+  price: number;
+}
+
+interface CartItem {
   title: string;
   quantity: number;
   price: number;
@@ -29,7 +34,7 @@ export default function CheckoutPage() {
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
       const cartItems = JSON.parse(savedCart);
-      const orderData = cartItems.map((item: any) => ({
+      const orderData = cartItems.map((item: CartItem) => ({
         title: item.title,
         quantity: item.quantity,
         price: item.price
@@ -82,16 +87,18 @@ export default function CheckoutPage() {
       } else {
         throw new Error(`Server error: ${response.status}`);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error submitting order:', error);
       
       let errorMessage = 'Failed to submit order. Please try again.';
-      if (error.name === 'AbortError') {
-        errorMessage = 'Request timed out. Please check your backend and try again.';
-      } else if (error.message.includes('Failed to fetch')) {
-        errorMessage = 'Network error. Please check your connection and try again.';
-      } else if (error.message.includes('Server error')) {
-        errorMessage = 'Server error. Please try again later.';
+      if (error instanceof Error) {
+        if (error.name === 'AbortError') {
+          errorMessage = 'Request timed out. Please check your backend and try again.';
+        } else if (error.message.includes('Failed to fetch')) {
+          errorMessage = 'Network error. Please check your connection and try again.';
+        } else if (error.message.includes('Server error')) {
+          errorMessage = 'Server error. Please try again later.';
+        }
       }
       
       // Show error message to user (you can add a state for this)

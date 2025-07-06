@@ -4,6 +4,7 @@ import "./globals.css";
 import styles from "./page.module.css";
 import { AuthProvider } from "../contexts/AuthContext";
 import AuthHeader from "../components/AuthHeader";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,7 +57,7 @@ export default function RootLayout({
         />
         <AuthProvider>
           <header className={styles.banner}>
-            <a href="/" className={styles.bannerTitle} style={{ textDecoration: 'none', color: '#ffd600', cursor: 'pointer' }}>E-com</a>
+            <Link href="/" className={styles.bannerTitle} style={{ textDecoration: 'none', color: '#ffd600', cursor: 'pointer' }}>E-com</Link>
             <AuthHeader />
           </header>
           {children}
