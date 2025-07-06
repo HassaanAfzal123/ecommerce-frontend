@@ -23,7 +23,7 @@ export default function LoginPage() {
     }
 
     try {
-      const success = await login(email, password);
+      const success = await login(email);
       if (success) {
         router.push('/');
       } else {

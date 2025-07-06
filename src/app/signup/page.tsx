@@ -30,7 +30,7 @@ export default function SignupPage() {
     }
 
     try {
-      const success = await signup(email, password);
+      const success = await signup(email);
       if (success) {
         router.push('/');
       } else {
