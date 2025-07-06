@@ -140,7 +140,7 @@ export default function LoginPage() {
         </button>
       </form>
       <div style={{ marginTop: 18, textAlign: 'center', color: '#666' }}>
-        Don't have an account? <a href="/signup" style={{ color: '#2563eb', textDecoration: 'underline' }}>Sign up</a>
+        Don&apos;t have an account? <a href="/signup" style={{ color: '#2563eb', textDecoration: 'underline' }}>Sign up</a>
       </div>
     </main>
   );

@@ -75,7 +75,7 @@ export default function SearchPage() {
     setTimeout(updateCartCount, 100);
   }, [cart]);
 
-  const addToCart = (product: any) => {
+  const addToCart = (product: Product) => {
     if (!user) {
       setAuthMessage("Please log in to add items to your cart.");
       setTimeout(() => setAuthMessage(""), 3000);
@@ -169,7 +169,7 @@ export default function SearchPage() {
         }
       })
       .finally(() => setLoading(false));
-  }, [query]);
+  }, [query, products.length]);
 
   // Pagination logic
   const startIdx = (page - 1) * PAGE_SIZE;
